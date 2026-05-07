@@ -50,27 +50,27 @@
 
         .glass {
             background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .glass-card {
             background: rgba(30, 41, 59, 0.4);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .glass-card:hover {
-            border-color: rgba(16, 185, 129, 0.4);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.2);
+            border-color: rgba(16, 185, 129, 0.5);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -15px rgba(16, 185, 129, 0.25);
         }
 
         .text-gradient {
-            background: linear-gradient(to right, #10B981, #34D399);
+            background: linear-gradient(135deg, #10B981 0%, #34D399 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -96,7 +96,7 @@
 
         /* Custom scrollbar */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 10px;
         }
         ::-webkit-scrollbar-track {
             background: #0F172A;
@@ -104,17 +104,31 @@
         ::-webkit-scrollbar-thumb {
             background: #1E293B;
             border-radius: 10px;
+            border: 2px solid #0F172A;
         }
         ::-webkit-scrollbar-thumb:hover {
             background: #10B981;
         }
+
+        .section-spacing {
+            padding-top: 8rem;
+            padding-bottom: 8rem;
+        }
+
+        @media (min-width: 1024px) {
+            .section-spacing {
+                padding-top: 10rem;
+                padding-bottom: 10rem;
+            }
+        }
     </style>
+yle>
 </head>
 <body class="antialiased overflow-x-hidden">
 
     <!-- Header / Nav -->
     <header class="fixed top-0 w-full z-50 glass">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <nav class="container mx-auto px-6 md:px-12 lg:px-24 py-5 flex justify-between items-center transition-all duration-300" id="navbar">
             <div class="text-2xl font-extrabold tracking-tighter">
                 JOEL<span class="text-emerald-500">HERNÁNDEZ</span>
             </div>
@@ -125,113 +139,181 @@
             </button>
 
             <!-- Desktop Menu -->
-            <ul class="hidden lg:flex space-x-8 font-medium">
+            <ul class="hidden lg:flex space-x-10 font-medium">
                 <li><a href="#inicio" class="nav-link hover:text-emerald-500 transition">Inicio</a></li>
-                <li><a href="#investigacion" class="nav-link hover:text-emerald-500 transition">Investigación</a></li>
-                <li><a href="#skills" class="nav-link hover:text-emerald-500 transition">Habilidades</a></li>
-                <li><a href="#certificaciones" class="nav-link hover:text-emerald-500 transition">Certificados</a></li>
+                <li><a href="#trayectoria" class="nav-link hover:text-emerald-500 transition">Trayectoria</a></li>
+                <li><a href="#servicios" class="nav-link hover:text-emerald-500 transition">Servicios</a></li>
                 <li><a href="#proyectos" class="nav-link hover:text-emerald-500 transition">Proyectos</a></li>
-                <li><a href="#contacto" class="nav-link bg-emerald-500 text-slate-900 px-5 py-2 rounded-full hover:bg-emerald-600 transition">Contacto</a></li>
+                <li><a href="#contacto" class="nav-link bg-emerald-500 text-slate-900 px-6 py-2.5 rounded-full hover:bg-emerald-600 transition shadow-lg shadow-emerald-500/20">Contacto</a></li>
             </ul>
         </nav>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-slate-900/95 absolute w-full left-0 py-6 px-6 border-b border-emerald-500/20">
-            <ul class="flex flex-col space-y-4 text-center">
+        <div id="mobile-menu" class="hidden lg:hidden bg-slate-900/98 absolute w-full left-0 py-8 px-10 border-b border-emerald-500/20 shadow-2xl">
+            <ul class="flex flex-col space-y-6 text-center text-lg">
                 <li><a href="#inicio" class="block py-2 hover:text-emerald-500">Inicio</a></li>
-                <li><a href="#investigacion" class="block py-2 hover:text-emerald-500">Investigación</a></li>
-                <li><a href="#skills" class="block py-2 hover:text-emerald-500">Habilidades</a></li>
-                <li><a href="#certificaciones" class="block py-2 hover:text-emerald-500">Certificados</a></li>
+                <li><a href="#trayectoria" class="block py-2 hover:text-emerald-500">Trayectoria</a></li>
+                <li><a href="#servicios" class="block py-2 hover:text-emerald-500">Servicios</a></li>
                 <li><a href="#proyectos" class="block py-2 hover:text-emerald-500">Proyectos</a></li>
-                <li><a href="#contacto" class="block py-2 text-emerald-500 font-bold">Contacto</a></li>
+                <li><a href="#contacto" class="block py-3 text-emerald-500 font-bold border-t border-white/5">Contacto</a></li>
             </ul>
         </div>
     </header>
 
     <main>
         <!-- Hero Section -->
-        <section id="inicio" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <section id="inicio" class="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden">
             <!-- Background Decoration -->
-            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[120px]"></div>
+            <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[100px]"></div>
 
-            <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+            <div class="container mx-auto px-6 md:px-12 lg:px-24 grid lg:grid-cols-2 gap-16 items-center">
                 <div data-aos="fade-right">
-                    <span class="inline-block px-4 py-1 rounded-full bg-emerald-500/10 text-emerald-500 text-sm font-semibold mb-6 border border-emerald-500/20">
-                        Tech Consultant & Research Engineer
+                    <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-500 text-sm font-semibold mb-8 border border-emerald-500/20">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        Docente Técnico & Research Engineer
                     </span>
-                    <h1 class="text-5xl lg:text-7xl font-extrabold mb-6 leading-tight">
-                        Donde la Ciencia y la <span class="text-gradient">Innovación</span> Convergen
+                    <h1 class="text-5xl lg:text-7xl font-black mb-8 leading-[1.1] tracking-tight">
+                        ¿Buscas una <span class="text-gradient">solución digital</span> que funcione?
                     </h1>
-                    <p class="text-xl text-slate-400 mb-10 max-w-xl">
-                        Especialista en sistemas informáticos con enfoque en investigación científica y automatización avanzada. Experto en ecosistemas digitales inteligentes e IA Generativa.
+                    <p class="text-xl text-slate-400 mb-12 max-w-xl leading-relaxed">
+                        Convierto tus ideas en plataformas web eficientes, seguras y diseñadas para el éxito. <span class="text-emerald-500 font-medium">Docente Técnico</span> con Máster en Investigación, operando desde Guayaquil para el mundo.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#proyectos" class="px-8 py-4 bg-emerald-500 text-slate-900 font-bold rounded-xl hover:bg-emerald-600 transition text-center flex items-center justify-center gap-2">
-                            Ver Proyectos <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    <div class="flex flex-col sm:flex-row gap-5">
+                        <a href="https://wa.me/593960510934" target="_blank" class="px-8 py-4 bg-emerald-500 text-slate-900 font-bold rounded-2xl hover:bg-emerald-600 transition text-center flex items-center justify-center gap-3 shadow-xl shadow-emerald-500/30">
+                            <i data-lucide="message-circle" class="w-6 h-6"></i> WhatsApp
                         </a>
-                        <a href="#contacto" class="px-8 py-4 glass text-emerald-500 font-bold rounded-xl hover:bg-emerald-500/10 transition text-center">
-                            Contactar
+                        <a href="#proyectos" class="px-8 py-4 glass text-slate-100 font-bold rounded-2xl hover:bg-emerald-500/10 transition text-center flex items-center justify-center gap-2">
+                            Ver Proyectos <i data-lucide="chevron-right" class="w-5 h-5"></i>
                         </a>
+                    </div>
+                    
+                    <div class="mt-12 flex items-center gap-8 opacity-60">
+                        <div class="flex flex-col">
+                            <span class="text-2xl font-bold">Guayaquil</span>
+                            <span class="text-xs uppercase tracking-widest">Ubicación</span>
+                        </div>
+                        <div class="w-px h-10 bg-white/20"></div>
+                        <div class="flex flex-col">
+                            <span class="text-2xl font-bold">Remoto</span>
+                            <span class="text-xs uppercase tracking-widest">Cobertura</span>
+                        </div>
                     </div>
                 </div>
-                <div class="relative" data-aos="fade-left">
-                    <div class="relative z-10 rounded-3xl overflow-hidden border-2 border-emerald-500/30 shadow-2xl shadow-emerald-500/10">
-                        <!-- Imagen Placeholder representativa -->
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop" alt="Joel Hernández" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700">
+                <div class="relative hidden lg:block" data-aos="fade-left">
+                    <div class="relative z-10 rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl aspect-[4/5] max-w-md mx-auto">
+                        <!-- Imagen representativa abstracta/técnica premium -->
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop" alt="Tecnología Avanzada" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                        
+                        <div class="absolute bottom-8 left-8 right-8 p-6 glass rounded-2xl">
+                            <p class="text-sm font-medium italic">"Integrando la creatividad con la tecnología para construir soluciones funcionales e innovadoras."</p>
+                        </div>
                     </div>
-                    <!-- Stats Floating Card -->
-                    <div class="absolute -bottom-6 -left-6 glass-card p-6 rounded-2xl z-20" data-aos="zoom-in" data-aos-delay="400">
-                        <div class="flex items-center gap-4">
-                            <div class="p-3 bg-emerald-500 rounded-lg text-slate-900">
-                                <i data-lucide="award"></i>
-                            </div>
-                            <div>
-                                <p class="text-2xl font-bold">3+ Años</p>
-                                <p class="text-xs text-slate-400">Experiencia Validada</p>
-                            </div>
+                    
+                    <!-- Floating Badge -->
+                    <div class="absolute -top-6 -right-6 glass-card p-5 rounded-2xl z-20 animate-bounce-slow">
+                        <div class="flex items-center gap-3">
+                            <div class="p-2 bg-blue-500 rounded-lg"><i data-lucide="graduation-cap" class="text-white w-5 h-5"></i></div>
+                            <span class="font-bold text-sm">MSc. Educación</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Investigación Section -->
-        <section id="investigacion" class="py-24 bg-slate-950/50">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16" data-aos="fade-up">
-                    <h2 class="text-4xl font-bold mb-4">Investigación & Rigor <span class="text-emerald-500">Académico</span></h2>
-                    <div class="w-20 h-1 bg-emerald-500 mx-auto rounded-full"></div>
+        <!-- Trayectoria Académica & Profesional -->
+        <section id="trayectoria" class="section-spacing bg-slate-950/50">
+            <div class="container mx-auto px-6 md:px-12 lg:px-24">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6" data-aos="fade-up">
+                    <div>
+                        <h2 class="text-4xl lg:text-5xl font-black mb-4 tracking-tight">Excelencia <span class="text-emerald-500">Académica</span></h2>
+                        <p class="text-slate-400 text-lg">Formación de cuarto nivel dedicada a la investigación y la tecnología.</p>
+                    </div>
+                    <div class="hidden md:block w-32 h-1 bg-emerald-500 rounded-full mb-4"></div>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
-                        <div class="p-4 bg-emerald-500/10 rounded-xl text-emerald-500 w-fit mb-6">
-                            <i data-lucide="file-text" class="w-8 h-8"></i>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="glass-card p-10 rounded-[2rem]" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex items-start justify-between mb-8">
+                            <div class="p-4 bg-emerald-500/10 rounded-2xl text-emerald-500">
+                                <i data-lucide="graduation-cap" class="w-8 h-8"></i>
+                            </div>
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-widest bg-white/5 px-3 py-1 rounded-full">Postgrado</span>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4">Producción Científica</h3>
-                        <p class="text-slate-400 mb-6">
-                            Elaboración de artículos técnicos, estudios de caso y monografías con metodología de investigación formal, garantizando precisión técnica y relevancia científica.
+                        <h3 class="text-2xl font-bold mb-4 leading-tight">Master en Educación Superior Universitaria e Investigación</h3>
+                        <p class="text-slate-400 mb-8 leading-relaxed">
+                            Especializado en metodologías de investigación científica y pedagogía avanzada para el entorno universitario tecnológico.
                         </p>
-                        <ul class="space-y-3 text-sm">
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="text-emerald-500 w-4 h-4"></i> Artículos Técnicos</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="text-emerald-500 w-4 h-4"></i> Estudios de Caso</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="text-emerald-500 w-4 h-4"></i> Monografías</li>
+                        <div class="flex items-center gap-2 text-emerald-500 text-sm font-bold">
+                            <i data-lucide="award" class="w-4 h-4"></i> Título de Cuarto Nivel
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-10 rounded-[2rem]" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex items-start justify-between mb-8">
+                            <div class="p-4 bg-blue-500/10 rounded-2xl text-blue-500">
+                                <i data-lucide="monitor" class="w-8 h-8"></i>
+                            </div>
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-widest bg-white/5 px-3 py-1 rounded-full">Grado</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 leading-tight">Licenciatura en Educación y Sistemas Multimedia</h3>
+                        <p class="text-slate-400 mb-8 leading-relaxed">
+                            Fundamentos sólidos en el desarrollo de ecosistemas digitales, diseño multimedia y educación técnica especializada.
+                        </p>
+                        <div class="flex items-center gap-2 text-blue-500 text-sm font-bold">
+                            <i data-lucide="check-circle" class="w-4 h-4"></i> Título Profesional
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Servicios Section -->
+        <section id="servicios" class="section-spacing">
+            <div class="container mx-auto px-6 md:px-12 lg:px-24">
+                <div class="text-center mb-20" data-aos="fade-up">
+                    <h2 class="text-4xl lg:text-5xl font-black mb-6 tracking-tight">Servicios <span class="text-emerald-500 text-gradient">Especializados</span></h2>
+                    <p class="text-slate-400 text-lg max-w-2xl mx-auto">Soluciones digitales integrales diseñadas para potenciar tu presencia y eficiencia operativa.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Servicio 1 -->
+                    <div class="glass-card p-8 rounded-3xl group" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-14 h-14 bg-emerald-500/10 rounded-2xl flex items-center justify-center text-emerald-500 mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="layout" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Desarrollo Web & Apps</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">Sitios modernos, responsivos y aplicaciones a medida con enfoque en UX/UI y rendimiento SEO.</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-center gap-2 text-xs text-slate-300"><i data-lucide="check" class="w-3 h-3 text-emerald-500"></i> Landing Pages</li>
+                            <li class="flex items-center gap-2 text-xs text-slate-300"><i data-lucide="check" class="w-3 h-3 text-emerald-500"></i> E-commerce</li>
                         </ul>
                     </div>
 
-                    <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
-                        <div class="p-4 bg-blue-500/10 rounded-xl text-blue-500 w-fit mb-6">
-                            <i data-lucide="book-open" class="w-8 h-8"></i>
+                    <!-- Servicio 2 -->
+                    <div class="glass-card p-8 rounded-3xl group" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-500 mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="shield-check" class="w-7 h-7"></i>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4">Gestión Documental</h3>
-                        <p class="text-slate-400 mb-6">
-                            Asesoría experta en proyectos de grado y tesis universitarias, aplicando rigurosamente normas APA y estructuras de validación científica internacional.
-                        </p>
-                        <ul class="space-y-3 text-sm">
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="text-emerald-500 w-4 h-4"></i> Normas APA (Última versión)</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="text-emerald-500 w-4 h-4"></i> Estructuras de Validación</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="text-emerald-500 w-4 h-4"></i> Proyectos de Grado</li>
+                        <h3 class="text-xl font-bold mb-4">Seguridad & Redes</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">Instalación de CCTV avanzado, configuración de redes corporativas y soporte técnico especializado.</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-center gap-2 text-xs text-slate-300"><i data-lucide="check" class="w-3 h-3 text-blue-500"></i> Cámaras IP/Analógicas</li>
+                            <li class="flex items-center gap-2 text-xs text-slate-300"><i data-lucide="check" class="w-3 h-3 text-blue-500"></i> Soporte Hardware/Software</li>
+                        </ul>
+                    </div>
+
+                    <!-- Servicio 3 -->
+                    <div class="glass-card p-8 rounded-3xl group" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-14 h-14 bg-purple-500/10 rounded-2xl flex items-center justify-center text-purple-500 mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="brain-circuit" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">IA & Automatización</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">Implementación de agentes de IA para procesos empresariales y CRM personalizados para gestión de clientes.</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-center gap-2 text-xs text-slate-300"><i data-lucide="check" class="w-3 h-3 text-purple-500"></i> Agentes IA Autónomos</li>
+                            <li class="flex items-center gap-2 text-xs text-slate-300"><i data-lucide="check" class="w-3 h-3 text-purple-500"></i> Proyectos E-learning</li>
                         </ul>
                     </div>
                 </div>
@@ -239,11 +321,11 @@
         </section>
 
         <!-- Bento Grid Skills -->
-        <section id="skills" class="py-24">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16" data-aos="fade-up">
-                    <h2 class="text-4xl font-bold mb-4">Arsenal <span class="text-emerald-500">Técnico</span></h2>
-                    <p class="text-slate-400 max-w-2xl mx-auto">Habilidades especializadas organizadas por áreas de impacto.</p>
+        <section id="skills" class="section-spacing bg-slate-950/30">
+            <div class="container mx-auto px-6 md:px-12 lg:px-24">
+                <div class="text-center mb-20" data-aos="fade-up">
+                    <h2 class="text-4xl lg:text-5xl font-black mb-6 tracking-tight">Arsenal <span class="text-emerald-500 text-gradient">Técnico</span></h2>
+                    <p class="text-slate-400 text-lg max-w-2xl mx-auto">Experiencia especializada en múltiples dimensiones de la ingeniería e informática.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 h-auto md:h-[600px]">
@@ -319,8 +401,8 @@
         </section>
 
         <!-- Certificaciones -->
-        <section id="certificaciones" class="py-24 bg-slate-950/50">
-            <div class="container mx-auto px-6">
+        <section id="certificaciones" class="section-spacing bg-slate-950/50">
+            <div class="container mx-auto px-6 md:px-12 lg:px-24">
                 <div class="text-center mb-16" data-aos="fade-up">
                     <h2 class="text-4xl font-bold mb-4">Certificaciones <span class="text-emerald-500">Premium</span></h2>
                     <p class="text-slate-400">Formación validada por líderes mundiales en tecnología.</p>
@@ -352,8 +434,8 @@
         </section>
 
         <!-- Proyectos Section -->
-        <section id="proyectos" class="py-24">
-            <div class="container mx-auto px-6">
+        <section id="proyectos" class="section-spacing">
+            <div class="container mx-auto px-6 md:px-12 lg:px-24">
                 <div class="text-center mb-16" data-aos="fade-up">
                     <h2 class="text-4xl font-bold mb-4">Proyectos de <span class="text-emerald-500">Impacto</span></h2>
                     <div class="w-20 h-1 bg-emerald-500 mx-auto rounded-full"></div>
@@ -433,32 +515,32 @@
         </section>
 
         <!-- Contacto Section -->
-        <section id="contacto" class="py-24 bg-slate-950/80">
-            <div class="container mx-auto px-6">
-                <div class="grid lg:grid-cols-2 gap-16">
+        <section id="contacto" class="section-spacing bg-slate-950/80">
+            <div class="container mx-auto px-6 md:px-12 lg:px-24">
+                <div class="grid lg:grid-cols-2 gap-20">
                     <div data-aos="fade-right">
-                        <h2 class="text-4xl font-bold mb-6">¿Tienes un <span class="text-emerald-500">Desafío Técnico?</span></h2>
-                        <p class="text-slate-400 mb-10">
-                            Estoy listo para transformar tus ideas en soluciones de alto impacto mediante IA y tecnología avanzada. Hablemos sobre tu próximo proyecto.
+                        <h2 class="text-4xl lg:text-5xl font-black mb-8 leading-tight">¿Tienes un <span class="text-emerald-500">Desafío Técnico?</span></h2>
+                        <p class="text-slate-400 text-lg mb-12 leading-relaxed">
+                            Estoy listo para transformar tus ideas en soluciones de alto impacto mediante IA y tecnología avanzada. Hablemos sobre tu próximo proyecto desde Guayaquil para cualquier parte del mundo.
                         </p>
                         
-                        <div class="space-y-6">
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 glass rounded-full flex items-center justify-center text-emerald-500">
+                        <div class="space-y-8">
+                            <div class="flex items-center gap-6">
+                                <div class="w-14 h-14 glass rounded-2xl flex items-center justify-center text-emerald-500 shadow-lg">
                                     <i data-lucide="mail"></i>
                                 </div>
                                 <div>
-                                    <p class="text-xs text-slate-500">Email Corporativo</p>
-                                    <p class="font-bold">contacto@joelhernandez.tech</p>
+                                    <p class="text-xs text-slate-500 uppercase tracking-widest font-bold">Email Directo</p>
+                                    <p class="text-xl font-bold">joelhernandez.cv@gmail.com</p>
                                 </div>
                             </div>
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 glass rounded-full flex items-center justify-center text-emerald-500">
+                            <div class="flex items-center gap-6">
+                                <div class="w-14 h-14 glass rounded-2xl flex items-center justify-center text-emerald-500 shadow-lg">
                                     <i data-lucide="phone"></i>
                                 </div>
                                 <div>
-                                    <p class="text-xs text-slate-500">WhatsApp Business</p>
-                                    <p class="font-bold">+593 960510934</p>
+                                    <p class="text-xs text-slate-500 uppercase tracking-widest font-bold">WhatsApp Business</p>
+                                    <p class="text-xl font-bold">+593 960510934</p>
                                 </div>
                             </div>
                         </div>
@@ -495,22 +577,27 @@
     </main>
 
     <!-- Footer -->
-    <footer class="py-12 border-t border-white/5">
-        <div class="container mx-auto px-6 text-center">
-            <div class="text-2xl font-extrabold tracking-tighter mb-6">
+    <footer class="py-20 border-t border-white/5">
+        <div class="container mx-auto px-6 md:px-12 lg:px-24 text-center">
+            <div class="text-2xl font-extrabold tracking-tighter mb-8">
                 JOEL<span class="text-emerald-500">HERNÁNDEZ</span>
             </div>
-            <p class="text-slate-500 text-sm mb-8 italic">"Donde la Ciencia y la Innovación Convergen"</p>
+            <p class="text-slate-500 text-sm mb-12 italic max-w-xl mx-auto leading-relaxed">
+                "Transformando la educación y la industria mediante la convergencia de la investigación científica y la innovación digital."
+            </p>
             
-            <div class="flex justify-center gap-6 mb-8">
-                <a href="https://linkedin.com/in/joel-hernandez-calero" class="w-10 h-10 glass rounded-full flex items-center justify-center hover:text-emerald-500 transition">
-                    <i data-lucide="linkedin" class="w-5 h-5"></i>
+            <div class="flex justify-center gap-8 mb-12">
+                <a href="https://linkedin.com/in/joel-hernandez-calero" target="_blank" class="w-12 h-12 glass rounded-2xl flex items-center justify-center hover:text-emerald-500 hover:scale-110 transition-all duration-300">
+                    <i data-lucide="linkedin" class="w-6 h-6"></i>
                 </a>
-                <a href="https://github.com/JoelHernandezDev" class="w-10 h-10 glass rounded-full flex items-center justify-center hover:text-emerald-500 transition">
-                    <i data-lucide="github" class="w-5 h-5"></i>
+                <a href="https://github.com/JoelHernandezDev" target="_blank" class="w-12 h-12 glass rounded-2xl flex items-center justify-center hover:text-emerald-500 hover:scale-110 transition-all duration-300">
+                    <i data-lucide="github" class="w-6 h-6"></i>
                 </a>
-                <a href="https://wa.me/593960510934" class="w-10 h-10 glass rounded-full flex items-center justify-center hover:text-emerald-500 transition">
-                    <i data-lucide="message-circle" class="w-5 h-5"></i>
+                <a href="https://wa.me/593960510934" target="_blank" class="w-12 h-12 glass rounded-2xl flex items-center justify-center hover:text-emerald-500 hover:scale-110 transition-all duration-300">
+                    <i data-lucide="message-circle" class="w-6 h-6"></i>
+                </a>
+                <a href="mailto:joelhernandez.cv@gmail.com" class="w-12 h-12 glass rounded-2xl flex items-center justify-center hover:text-emerald-500 hover:scale-110 transition-all duration-300">
+                    <i data-lucide="mail" class="w-6 h-6"></i>
                 </a>
             </div>
 

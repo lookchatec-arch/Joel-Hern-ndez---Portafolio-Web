@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Joel Hernández - Portafolio Web Premium
 
 Este repositorio contiene el código fuente del sitio web profesional de **Joel Hernández**, Tech Consultant & Research Engineer. El proyecto ha sido diseñado para reflejar autoridad, conocimiento técnico avanzado y rigor científico.
@@ -36,3 +37,7 @@ Este repositorio contiene el código fuente del sitio web profesional de **Joel 
 
 ---
 *Desarrollado con precisión técnica e innovación.*
+=======
+# Joel-Hern-ndez---Portafolio-Web
+Joel Hernández - Portafolio Web
+>>>>>>> bcb90b16408df3cee682d6803b91e8e24d0e0c94
