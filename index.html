@@ -15,8 +15,9 @@
     <!-- AOS.js for animations -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Swiper.js for carousel -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
         tailwind.config = {
@@ -128,23 +129,31 @@ yle>
 
     <!-- Header / Nav -->
     <header class="fixed top-0 w-full z-50 glass">
-        <nav class="container mx-auto px-6 md:px-12 lg:px-24 py-5 flex justify-between items-center transition-all duration-300" id="navbar">
-            <div class="text-2xl font-extrabold tracking-tighter">
+        <nav class="container mx-auto px-4 md:px-8 lg:px-12 py-5 flex justify-between items-center transition-all duration-300" id="navbar">
+            <div class="text-2xl font-extrabold tracking-tighter text-smoke">
                 JOEL<span class="text-accent-cyan">HERNÁNDEZ</span>
             </div>
             
             <!-- Mobile Menu Toggle -->
-            <button id="menu-btn" class="lg:hidden text-accent-cyan">
-                <i data-lucide="menu"></i>
-            </button>
+            <div class="flex items-center gap-4 lg:hidden">
+                <button id="lang-toggle-mobile" class="text-sm font-bold px-3 py-1 glass rounded-lg text-accent-cyan">EN</button>
+                <button id="menu-btn" class="text-accent-cyan">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
 
             <!-- Desktop Menu -->
-            <ul class="hidden lg:flex space-x-10 font-medium">
-                <li><a href="#inicio" class="nav-link hover:text-accent-cyan transition">Inicio</a></li>
-                <li><a href="#trayectoria" class="nav-link hover:text-accent-cyan transition">Trayectoria</a></li>
-                <li><a href="#servicios" class="nav-link hover:text-accent-cyan transition">Servicios</a></li>
-                <li><a href="#proyectos" class="nav-link hover:text-accent-cyan transition">Proyectos</a></li>
-                <li><a href="#contacto" class="nav-link bg-accent-cyan text-smoke px-6 py-2.5 rounded-full hover:bg-accent-blue transition shadow-lg shadow-accent-cyan/20">Contacto</a></li>
+            <ul class="hidden lg:flex space-x-8 font-medium items-center">
+                <li><a href="#inicio" class="nav-link hover:text-accent-cyan transition text-smoke" data-i18n="nav-start">Inicio</a></li>
+                <li><a href="#trayectoria" class="nav-link hover:text-accent-cyan transition text-smoke" data-i18n="nav-trajectory">Trayectoria</a></li>
+                <li><a href="#servicios" class="nav-link hover:text-accent-cyan transition text-smoke" data-i18n="nav-services">Servicios</a></li>
+                <li><a href="#proyectos" class="nav-link hover:text-accent-cyan transition text-smoke" data-i18n="nav-projects">Proyectos</a></li>
+                <li><a href="#contacto" class="nav-link bg-accent-cyan text-smoke px-6 py-2.5 rounded-full hover:bg-accent-blue transition shadow-lg shadow-accent-cyan/20" data-i18n="nav-contact">Contacto</a></li>
+                <li>
+                    <button id="lang-toggle" class="ml-4 px-3 py-1.5 glass rounded-xl text-accent-cyan hover:bg-accent-cyan/10 transition text-xs font-bold border border-accent-cyan/30">
+                        ENGLISH
+                    </button>
+                </li>
             </ul>
         </nav>
 
@@ -167,24 +176,24 @@ yle>
             <div class="absolute top-0 right-0 -mr-20 -mt-20 w-[500px] h-[500px] bg-accent-cyan/5 rounded-full blur-[120px]"></div>
             <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[100px]"></div>
 
-            <div class="container mx-auto px-6 md:px-12 lg:px-24 grid lg:grid-cols-2 gap-16 items-center">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12 grid lg:grid-cols-2 gap-16 items-center">
                 <div data-aos="fade-right">
                     <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-cyan/10 text-accent-cyan text-sm font-semibold mb-8 border border-accent-cyan/20">
                         <span class="w-2 h-2 rounded-full bg-accent-cyan animate-pulse"></span>
-                        Docente Técnico & Research Engineer
+                        <span data-i18n="hero-tag">Docente Técnico & Research Engineer</span>
                     </span>
-                    <h1 class="text-5xl lg:text-7xl font-black mb-8 leading-[1.1] tracking-tight">
-                        ¿Buscas una <span class="text-gradient">solución digital</span> que funcione?
+                    <h1 class="text-5xl lg:text-7xl font-black mb-8 leading-[1.1] tracking-tight text-smoke">
+                        <span data-i18n="hero-title">¿Buscas una <span class="text-gradient">solución digital</span> que funcione?</span>
                     </h1>
                     <p class="text-xl text-slate-400 mb-12 max-w-xl leading-relaxed">
-                        Convierto tus ideas en plataformas web eficientes, seguras y diseñadas para el éxito. <span class="text-accent-cyan font-medium">Docente Técnico</span> con Máster en Investigación, operando desde Guayaquil para el mundo.
+                        <span data-i18n="hero-desc">Convierto tus ideas en plataformas web eficientes, seguras y diseñadas para el éxito. <span class="text-accent-cyan font-medium">Docente Técnico</span> con Máster en Investigación, operando desde Guayaquil para el mundo.</span>
                     </p>
                     <div class="flex flex-col sm:flex-row gap-5">
                         <a href="https://wa.me/593960510934" target="_blank" class="px-8 py-4 bg-accent-cyan text-smoke font-bold rounded-2xl hover:bg-accent-blue transition text-center flex items-center justify-center gap-3 shadow-xl shadow-accent-cyan/30">
                             <i data-lucide="message-circle" class="w-6 h-6"></i> WhatsApp
                         </a>
-                        <a href="#proyectos" class="px-8 py-4 glass text-slate-100 font-bold rounded-2xl hover:bg-accent-cyan/10 transition text-center flex items-center justify-center gap-2">
-                            Ver Proyectos <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                        <a href="#proyectos" class="px-8 py-4 glass text-smoke font-bold rounded-2xl hover:bg-accent-cyan/10 transition text-center flex items-center justify-center gap-2">
+                            <span data-i18n="hero-btn-projects">Ver Proyectos</span> <i data-lucide="chevron-right" class="w-5 h-5"></i>
                         </a>
                     </div>
                     
@@ -224,11 +233,11 @@ yle>
 
         <!-- Trayectoria Académica & Profesional -->
         <section id="trayectoria" class="section-spacing bg-dark-gray/50">
-            <div class="container mx-auto px-6 md:px-12 lg:px-24">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
                 <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6" data-aos="fade-up">
                     <div>
-                        <h2 class="text-4xl lg:text-5xl font-black mb-4 tracking-tight">Excelencia <span class="text-accent-cyan">Académica</span></h2>
-                        <p class="text-slate-400 text-lg">Formación de cuarto nivel dedicada a la investigación y la tecnología.</p>
+                        <h2 class="text-4xl lg:text-5xl font-black mb-4 tracking-tight text-smoke"><span data-i18n="traj-title">Excelencia <span class="text-accent-cyan">Académica</span></span></h2>
+                        <p class="text-slate-400 text-lg" data-i18n="traj-subtitle">Formación de cuarto nivel dedicada a la investigación y la tecnología.</p>
                     </div>
                     <div class="hidden md:block w-32 h-1 bg-accent-cyan rounded-full mb-4"></div>
                 </div>
@@ -239,31 +248,48 @@ yle>
                             <div class="p-4 bg-accent-cyan/10 rounded-2xl text-accent-cyan">
                                 <i data-lucide="graduation-cap" class="w-8 h-8"></i>
                             </div>
-                            <span class="text-xs font-bold text-slate-500 uppercase tracking-widest bg-white/5 px-3 py-1 rounded-full">Postgrado</span>
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-widest bg-white/5 px-3 py-1 rounded-full" data-i18n="traj-post">Postgrado</span>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4 leading-tight">Master en Educación Superior Universitaria e Investigación</h3>
-                        <p class="text-slate-400 mb-8 leading-relaxed">
+                        <h3 class="text-2xl font-bold mb-4 leading-tight text-smoke" data-i18n="traj-msc">Master en Educación Superior Universitaria e Investigación</h3>
+                        <p class="text-slate-400 mb-8 leading-relaxed" data-i18n="traj-msc-desc">
                             Especializado en metodologías de investigación científica y pedagogía avanzada para el entorno universitario tecnológico.
                         </p>
                         <div class="flex items-center gap-2 text-accent-cyan text-sm font-bold">
-                            <i data-lucide="award" class="w-4 h-4"></i> Título de Cuarto Nivel
+                            <i data-lucide="award" class="w-4 h-4"></i> <span data-i18n="traj-msc-level">Título de Cuarto Nivel</span>
                         </div>
                     </div>
 
                     <div class="glass-card p-10 rounded-[2rem]" data-aos="fade-up" data-aos-delay="200">
                         <div class="flex items-start justify-between mb-8">
-                            <div class="p-4 bg-blue-500/10 rounded-2xl text-blue-500">
+                            <div class="p-4 bg-accent-cyan/10 rounded-2xl text-accent-cyan">
                                 <i data-lucide="monitor" class="w-8 h-8"></i>
                             </div>
-                            <span class="text-xs font-bold text-slate-500 uppercase tracking-widest bg-white/5 px-3 py-1 rounded-full">Grado</span>
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-widest bg-white/5 px-3 py-1 rounded-full" data-i18n="traj-degree">Grado</span>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4 leading-tight">Licenciatura en Educación y Sistemas Multimedia</h3>
-                        <p class="text-slate-400 mb-8 leading-relaxed">
+                        <h3 class="text-2xl font-bold mb-4 leading-tight text-smoke" data-i18n="traj-lic">Licenciatura en Educación y Sistemas Multimedia</h3>
+                        <p class="text-slate-400 mb-8 leading-relaxed" data-i18n="traj-lic-desc">
                             Fundamentos sólidos en el desarrollo de ecosistemas digitales, diseño multimedia y educación técnica especializada.
                         </p>
-                        <div class="flex items-center gap-2 text-blue-500 text-sm font-bold">
-                            <i data-lucide="check-circle" class="w-4 h-4"></i> Título Profesional
+                        <div class="flex items-center gap-2 text-accent-cyan text-sm font-bold">
+                            <i data-lucide="check-circle" class="w-4 h-4"></i> <span data-i18n="traj-lic-level">Título Profesional</span>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tecnologías Carousel -->
+        <section class="py-16 bg-dark-carbon">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <div class="swiper techSwiper">
+                    <div class="swiper-wrapper items-center">
+                        <div class="swiper-slide opacity-40 hover:opacity-100 transition-opacity flex justify-center text-accent-cyan"><i data-lucide="code" class="w-12 h-12"></i></div>
+                        <div class="swiper-slide opacity-40 hover:opacity-100 transition-opacity flex justify-center text-accent-cyan"><i data-lucide="terminal" class="w-12 h-12"></i></div>
+                        <div class="swiper-slide opacity-40 hover:opacity-100 transition-opacity flex justify-center text-accent-cyan"><i data-lucide="database" class="w-12 h-12"></i></div>
+                        <div class="swiper-slide opacity-40 hover:opacity-100 transition-opacity flex justify-center text-accent-cyan"><i data-lucide="layout" class="w-12 h-12"></i></div>
+                        <div class="swiper-slide opacity-40 hover:opacity-100 transition-opacity flex justify-center text-accent-cyan"><i data-lucide="cpu" class="w-12 h-12"></i></div>
+                        <div class="swiper-slide opacity-40 hover:opacity-100 transition-opacity flex justify-center text-accent-cyan"><i data-lucide="globe" class="w-12 h-12"></i></div>
+                        <div class="swiper-slide opacity-40 hover:opacity-100 transition-opacity flex justify-center text-accent-cyan"><i data-lucide="shield" class="w-12 h-12"></i></div>
                     </div>
                 </div>
             </div>
@@ -271,10 +297,10 @@ yle>
 
         <!-- Servicios Section -->
         <section id="servicios" class="section-spacing">
-            <div class="container mx-auto px-6 md:px-12 lg:px-24">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
                 <div class="text-center mb-20" data-aos="fade-up">
-                    <h2 class="text-4xl lg:text-5xl font-black mb-6 tracking-tight">Servicios <span class="text-accent-cyan text-gradient">Especializados</span></h2>
-                    <p class="text-slate-400 text-lg max-w-2xl mx-auto">Soluciones digitales integrales diseñadas para potenciar tu presencia y eficiencia operativa.</p>
+                    <h2 class="text-4xl lg:text-5xl font-black mb-6 tracking-tight text-smoke" data-i18n="serv-title">Servicios <span class="text-accent-cyan text-gradient">Especializados</span></h2>
+                    <p class="text-slate-400 text-lg max-w-2xl mx-auto" data-i18n="serv-subtitle">Soluciones digitales integrales diseñadas para potenciar tu presencia y eficiencia operativa.</p>
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-8">
@@ -283,8 +309,8 @@ yle>
                         <div class="w-14 h-14 bg-accent-cyan/10 rounded-2xl flex items-center justify-center text-accent-cyan mb-6 group-hover:scale-110 transition-transform">
                             <i data-lucide="layout" class="w-7 h-7"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-4">Desarrollo Web & Apps</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6">Sitios modernos, responsivos y aplicaciones a medida con enfoque en UX/UI y rendimiento SEO.</p>
+                        <h3 class="text-xl font-bold mb-4 text-smoke" data-i18n="serv-1-title">Desarrollo Web & Apps</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6" data-i18n="serv-1-desc">Sitios modernos, responsivos y aplicaciones a medida con enfoque en UX/UI y rendimiento SEO.</p>
                         <ul class="space-y-2">
                             <li class="flex items-center gap-2 text-xs text-slate-300"><i data-lucide="check" class="w-3 h-3 text-accent-cyan"></i> Landing Pages</li>
                             <li class="flex items-center gap-2 text-xs text-slate-300"><i data-lucide="check" class="w-3 h-3 text-accent-cyan"></i> E-commerce</li>
@@ -293,27 +319,27 @@ yle>
 
                     <!-- Servicio 2 -->
                     <div class="glass-card p-8 rounded-3xl group" data-aos="fade-up" data-aos-delay="200">
-                        <div class="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-500 mb-6 group-hover:scale-110 transition-transform">
+                        <div class="w-14 h-14 bg-accent-cyan/10 rounded-2xl flex items-center justify-center text-accent-cyan mb-6 group-hover:scale-110 transition-transform">
                             <i data-lucide="shield-check" class="w-7 h-7"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-4">Seguridad & Redes</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6">Instalación de CCTV avanzado, configuración de redes corporativas y soporte técnico especializado.</p>
+                        <h3 class="text-xl font-bold mb-4 text-smoke" data-i18n="serv-2-title">Seguridad & Redes</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6" data-i18n="serv-2-desc">Instalación de CCTV avanzado, configuración de redes corporativas y soporte técnico especializado.</p>
                         <ul class="space-y-2">
-                            <li class="flex items-center gap-2 text-xs text-slate-300"><i data-lucide="check" class="w-3 h-3 text-blue-500"></i> Cámaras IP/Analógicas</li>
-                            <li class="flex items-center gap-2 text-xs text-slate-300"><i data-lucide="check" class="w-3 h-3 text-blue-500"></i> Soporte Hardware/Software</li>
+                            <li class="flex items-center gap-2 text-xs text-slate-300"><i data-lucide="check" class="w-3 h-3 text-accent-cyan"></i> Cámaras IP/Analógicas</li>
+                            <li class="flex items-center gap-2 text-xs text-slate-300"><i data-lucide="check" class="w-3 h-3 text-accent-cyan"></i> Soporte Hardware/Software</li>
                         </ul>
                     </div>
 
                     <!-- Servicio 3 -->
                     <div class="glass-card p-8 rounded-3xl group" data-aos="fade-up" data-aos-delay="300">
-                        <div class="w-14 h-14 bg-purple-500/10 rounded-2xl flex items-center justify-center text-purple-500 mb-6 group-hover:scale-110 transition-transform">
+                        <div class="w-14 h-14 bg-accent-cyan/10 rounded-2xl flex items-center justify-center text-accent-cyan mb-6 group-hover:scale-110 transition-transform">
                             <i data-lucide="brain-circuit" class="w-7 h-7"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-4">IA & Automatización</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6">Implementación de agentes de IA para procesos empresariales y CRM personalizados para gestión de clientes.</p>
+                        <h3 class="text-xl font-bold mb-4 text-smoke" data-i18n="serv-3-title">IA & Automatización</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6" data-i18n="serv-3-desc">Implementación de agentes de IA para procesos empresariales y CRM personalizados para gestión de clientes.</p>
                         <ul class="space-y-2">
-                            <li class="flex items-center gap-2 text-xs text-slate-300"><i data-lucide="check" class="w-3 h-3 text-purple-500"></i> Agentes IA Autónomos</li>
-                            <li class="flex items-center gap-2 text-xs text-slate-300"><i data-lucide="check" class="w-3 h-3 text-purple-500"></i> Proyectos E-learning</li>
+                            <li class="flex items-center gap-2 text-xs text-slate-300"><i data-lucide="check" class="w-3 h-3 text-accent-cyan"></i> Agentes IA Autónomos</li>
+                            <li class="flex items-center gap-2 text-xs text-slate-300"><i data-lucide="check" class="w-3 h-3 text-accent-cyan"></i> Proyectos E-learning</li>
                         </ul>
                     </div>
                 </div>
@@ -321,8 +347,8 @@ yle>
         </section>
 
         <!-- Bento Grid Skills -->
-        <section id="skills" class="section-spacing bg-slate-950/30">
-            <div class="container mx-auto px-6 md:px-12 lg:px-24">
+        <section id="skills" class="section-spacing bg-dark-gray/30">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
                 <div class="text-center mb-20" data-aos="fade-up">
                     <h2 class="text-4xl lg:text-5xl font-black mb-6 tracking-tight">Arsenal <span class="text-accent-cyan text-gradient">Técnico</span></h2>
                     <p class="text-slate-400 text-lg max-w-2xl mx-auto">Experiencia especializada en múltiples dimensiones de la ingeniería e informática.</p>
@@ -402,32 +428,32 @@ yle>
 
         <!-- Certificaciones -->
         <section id="certificaciones" class="section-spacing bg-dark-gray/50">
-            <div class="container mx-auto px-6 md:px-12 lg:px-24">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
                 <div class="text-center mb-16" data-aos="fade-up">
-                    <h2 class="text-4xl font-bold mb-4">Certificaciones <span class="text-accent-cyan">Premium</span></h2>
-                    <p class="text-slate-400">Formación validada por líderes mundiales en tecnología.</p>
+                    <h2 class="text-4xl lg:text-5xl font-black mb-4 tracking-tight text-smoke" data-i18n="cert-title">Certificaciones <span class="text-accent-cyan">Premium</span></h2>
+                    <p class="text-slate-400" data-i18n="cert-subtitle">Formación validada por líderes mundiales en tecnología.</p>
                 </div>
 
                 <div class="flex flex-wrap justify-center gap-8 items-center">
-                    <!-- AWS -->
+                    <!-- CISCO -->
                     <div class="glass-card px-10 py-6 rounded-2xl flex flex-col items-center gap-4 grayscale hover:grayscale-0 transition" data-aos="flip-left">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" class="h-12">
-                        <span class="text-xs font-bold text-slate-500 uppercase tracking-widest text-center">Cloud Practitioner</span>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Cisco_logo.svg" alt="Cisco" class="h-10">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-widest text-center">Networking Expert</span>
                     </div>
-                    <!-- IBM -->
+                    <!-- Google Cloud -->
                     <div class="glass-card px-10 py-6 rounded-2xl flex flex-col items-center gap-4 grayscale hover:grayscale-0 transition" data-aos="flip-left" data-aos-delay="100">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM" class="h-12">
-                        <span class="text-xs font-bold text-slate-500 uppercase tracking-widest text-center">Software Developer</span>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" alt="Google Cloud" class="h-10">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-widest text-center">Cloud Architecture</span>
                     </div>
-                    <!-- Google -->
+                    <!-- IBM Web Dev -->
                     <div class="glass-card px-10 py-6 rounded-2xl flex flex-col items-center gap-4 grayscale hover:grayscale-0 transition" data-aos="flip-left" data-aos-delay="200">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" class="h-10 my-1">
-                        <span class="text-xs font-bold text-slate-500 uppercase tracking-widest text-center">IT Professional</span>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM" class="h-10">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-widest text-center">Full Stack Dev</span>
                     </div>
-                    <!-- Montepiedra -->
+                    <!-- Web Development -->
                     <div class="glass-card px-10 py-6 rounded-2xl flex flex-col items-center gap-4 grayscale hover:grayscale-0 transition" data-aos="flip-left" data-aos-delay="300">
-                        <div class="h-12 flex items-center justify-center font-bold text-lg text-accent-cyan">MONTEPIEDRA</div>
-                        <span class="text-xs font-bold text-slate-500 uppercase tracking-widest text-center">Técnico Informática</span>
+                        <div class="p-2 bg-accent-cyan rounded-lg text-dark-carbon"><i data-lucide="globe" class="w-6 h-6"></i></div>
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-widest text-center">Web Specialist</span>
                     </div>
                 </div>
             </div>
@@ -435,9 +461,9 @@ yle>
 
         <!-- Proyectos Section -->
         <section id="proyectos" class="section-spacing">
-            <div class="container mx-auto px-6 md:px-12 lg:px-24">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
                 <div class="text-center mb-16" data-aos="fade-up">
-                    <h2 class="text-4xl font-bold mb-4">Proyectos de <span class="text-accent-cyan">Impacto</span></h2>
+                    <h2 class="text-4xl lg:text-5xl font-black mb-4 tracking-tight text-smoke"><span data-i18n="proj-title">Proyectos de <span class="text-accent-cyan">Impacto</span></span></h2>
                     <div class="w-20 h-1 bg-accent-cyan mx-auto rounded-full"></div>
                 </div>
 
@@ -515,8 +541,8 @@ yle>
         </section>
 
         <!-- Contacto Section -->
-        <section id="contacto" class="section-spacing bg-slate-950/80">
-            <div class="container mx-auto px-6 md:px-12 lg:px-24">
+        <section id="contacto" class="section-spacing bg-dark-gray/50">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
                 <div class="grid lg:grid-cols-2 gap-20">
                     <div data-aos="fade-right">
                         <h2 class="text-4xl lg:text-5xl font-black mb-8 leading-tight">¿Tienes un <span class="text-accent-cyan">Desafío Técnico?</span></h2>
@@ -578,7 +604,7 @@ yle>
 
     <!-- Footer -->
     <footer class="py-20 border-t border-white/5 bg-dark-carbon">
-        <div class="container mx-auto px-6 md:px-12 lg:px-24 text-center">
+        <div class="container mx-auto px-4 md:px-8 lg:px-12 text-center">
             <div class="text-2xl font-extrabold tracking-tighter mb-8 text-smoke">
                 JOEL<span class="text-accent-cyan">HERNÁNDEZ</span>
             </div>
@@ -607,9 +633,105 @@ yle>
         </div>
     </footer>
 
+    <!-- Sticky Buttons -->
+    <div class="fixed bottom-8 right-8 z-[100] flex flex-col gap-4">
+        <a href="https://wa.me/593960510934" target="_blank" class="w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300">
+            <i data-lucide="message-circle" class="w-8 h-8"></i>
+        </a>
+        <button id="scroll-top" class="w-14 h-14 glass text-accent-cyan rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-all duration-300 opacity-0 invisible">
+            <i data-lucide="arrow-up" class="w-8 h-8"></i>
+        </button>
+    </div>
+
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Translation Data
+        const translations = {
+            es: {
+                "nav-start": "Inicio",
+                "nav-trajectory": "Trayectoria",
+                "nav-services": "Servicios",
+                "nav-projects": "Proyectos",
+                "nav-contact": "Contacto",
+                "hero-tag": "Docente Técnico & Research Engineer",
+                "hero-title": "¿Buscas una <span class='text-gradient'>solución digital</span> que funcione?",
+                "hero-desc": "Convierto tus ideas en plataformas web eficientes, seguras y diseñadas para el éxito. <span class='text-accent-cyan font-medium'>Docente Técnico</span> con Máster en Investigación, operando desde Guayaquil para el mundo.",
+                "hero-btn-projects": "Ver Proyectos",
+                "traj-title": "Excelencia <span class='text-accent-cyan'>Académica</span>",
+                "traj-subtitle": "Formación de cuarto nivel dedicada a la investigación y la tecnología.",
+                "traj-post": "Postgrado",
+                "traj-msc": "Master en Educación Superior Universitaria e Investigación",
+                "traj-msc-desc": "Especializado en metodologías de investigación científica y pedagogía avanzada para el entorno universitario tecnológico.",
+                "traj-msc-level": "Título de Cuarto Nivel",
+                "traj-degree": "Grado",
+                "traj-lic": "Licenciatura en Educación y Sistemas Multimedia",
+                "traj-lic-desc": "Fundamentos sólidos en el desarrollo de ecosistemas digitales, diseño multimedia y educación técnica especializada.",
+                "traj-lic-level": "Título Profesional",
+                "serv-title": "Servicios <span class='text-accent-cyan text-gradient'>Especializados</span>",
+                "serv-subtitle": "Soluciones digitales integrales diseñadas para potenciar tu presencia y eficiencia operativa.",
+                "serv-1-title": "Desarrollo Web & Apps",
+                "serv-1-desc": "Sitios modernos, responsivos y aplicaciones a medida con enfoque en UX/UI y rendimiento SEO.",
+                "serv-2-title": "Seguridad & Redes",
+                "serv-2-desc": "Instalación de CCTV avanzado, configuración de redes corporativas y soporte técnico especializado.",
+                "serv-3-title": "IA & Automatización",
+                "serv-3-desc": "Implementación de agentes de IA para procesos empresariales y CRM personalizados para gestión de clientes.",
+                "cert-title": "Certificaciones <span class='text-accent-cyan'>Premium</span>",
+                "cert-subtitle": "Formación validada por líderes mundiales en tecnología."
+            },
+            en: {
+                "nav-start": "Home",
+                "nav-trajectory": "Trajectory",
+                "nav-services": "Services",
+                "nav-projects": "Projects",
+                "nav-contact": "Contact",
+                "hero-tag": "Technical Teacher & Research Engineer",
+                "hero-title": "Looking for a <span class='text-gradient'>digital solution</span> that works?",
+                "hero-desc": "I turn your ideas into efficient, secure web platforms designed for success. <span class='text-accent-cyan font-medium'>Technical Teacher</span> with a Master's in Research, operating from Guayaquil for the world.",
+                "hero-btn-projects": "View Projects",
+                "traj-title": "Academic <span class='text-accent-cyan'>Excellence</span>",
+                "traj-subtitle": "Fourth-level training dedicated to research and technology.",
+                "traj-post": "Postgraduate",
+                "traj-msc": "Master in Higher University Education and Research",
+                "traj-msc-desc": "Specialized in scientific research methodologies and advanced pedagogy for the technological university environment.",
+                "traj-msc-level": "Fourth Level Degree",
+                "traj-degree": "Undergraduate",
+                "traj-lic": "Bachelor in Education and Multimedia Systems",
+                "traj-lic-desc": "Solid foundations in the development of digital ecosystems, multimedia design, and specialized technical education.",
+                "traj-lic-level": "Professional Degree",
+                "serv-title": "Specialized <span class='text-accent-cyan text-gradient'>Services</span>",
+                "serv-subtitle": "Comprehensive digital solutions designed to boost your presence and operational efficiency.",
+                "serv-1-title": "Web & App Development",
+                "serv-1-desc": "Modern, responsive sites and custom applications with a focus on UX/UI and SEO performance.",
+                "serv-2-title": "Security & Networks",
+                "serv-2-desc": "Advanced CCTV installation, corporate network configuration, and specialized technical support.",
+                "serv-3-title": "AI & Automation",
+                "serv-3-desc": "Implementation of AI agents for business processes and custom CRM for customer management.",
+                "cert-title": "Premium <span class='text-accent-cyan'>Certifications</span>",
+                "cert-subtitle": "Training validated by world leaders in technology."
+            }
+        };
+
+        let currentLang = 'es';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            const btn = document.getElementById('lang-toggle');
+            const btnMobile = document.getElementById('lang-toggle-mobile');
+            btn.textContent = currentLang === 'es' ? 'ENGLISH' : 'ESPAÑOL';
+            btnMobile.textContent = currentLang === 'es' ? 'EN' : 'ES';
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang][key]) {
+                    el.innerHTML = translations[currentLang][key];
+                }
+            });
+        }
+
+        document.getElementById('lang-toggle').addEventListener('click', toggleLanguage);
+        document.getElementById('lang-toggle-mobile').addEventListener('click', toggleLanguage);
+
         // Initialize Lucide Icons
         lucide.createIcons();
 
@@ -620,6 +742,21 @@ yle>
             offset: 100,
         });
 
+        // Swiper Tech Carousel
+        new Swiper(".techSwiper", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                640: { slidesPerView: 4 },
+                1024: { slidesPerView: 6 },
+            },
+        });
+
         // Mobile Menu Toggle
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -628,24 +765,18 @@ yle>
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Close mobile menu on link click
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // Navbar blur effect on scroll
+        // Scroll Top Button
+        const scrollTopBtn = document.getElementById('scroll-top');
         window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.classList.add('py-2');
-                header.classList.remove('py-4');
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.remove('opacity-0', 'invisible');
             } else {
-                header.classList.remove('py-2');
-                header.classList.add('py-4');
+                scrollTopBtn.classList.add('opacity-0', 'invisible');
             }
         });
-    </script>
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
 </body>
 </html>
