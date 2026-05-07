@@ -1,43 +1,49 @@
-<<<<<<< HEAD
 # Joel Hernández - Portafolio Web Premium
 
 Este repositorio contiene el código fuente del sitio web profesional de **Joel Hernández**, Tech Consultant & Research Engineer. El proyecto ha sido diseñado para reflejar autoridad, conocimiento técnico avanzado y rigor científico.
 
+## 🌟 Características Principales
+
+- **Multilingüe (i18n):** Soporte dinámico para Español e Inglés sin recarga de página.
+- **Diseño Ultra-Premium:** Estética de modo oscuro con glassmorphism, degradados y micro-animaciones.
+- **Responsividad Total:** Optimizado para móviles, tablets y escritorio (Mobile First).
+- **Acciones Rápidas:** Botones flotantes de WhatsApp y Scroll-to-Top integrados.
+- **Carrusel Tecnológico:** Exhibición dinámica de habilidades técnicas con Swiper.js.
+
 ## 🚀 Tecnologías Utilizadas
 
-- **HTML5 Semántico:** Estructura sólida y optimizada para SEO.
-- **CSS3 & Tailwind CSS:** Diseño moderno con efectos de glassmorphism y responsividad total (Mobile First).
-- **Vanilla JavaScript (ES6+):** Interactividad ligera y fluida.
-- **AOS.js:** Animaciones de scroll premium para una experiencia de usuario envolvente.
-- **Lucide Icons:** Iconografía moderna y minimalista.
-- **PHP:** Backend simple para la gestión del formulario de contacto nativo en hosting compartido.
+- **Frontend:** HTML5 Semántico, CSS3, Tailwind CSS (CDN).
+- **Interactividad:** Vanilla JavaScript (ES6+).
+- **Librerías Externas:**
+  - **Swiper.js:** Para el carrusel de tecnologías.
+  - **AOS.js:** Para animaciones de entrada premium.
+  - **Lucide Icons:** Iconografía vectorial moderna.
+- **Backend:** `contacto.php` nativo para gestión de formularios.
 
 ## 📁 Estructura del Proyecto
 
-- `index.html`: Archivo principal que integra el diseño (Tailwind), el contenido y la lógica de animaciones.
-- `contacto.php`: Script encargado de procesar y enviar los correos electrónicos del formulario de contacto.
-- `README.md`: Documentación del proyecto.
+- `index.html`: Estructura principal del sitio.
+- `css/style.css`: Estilos personalizados, efectos de cristal y scrollbars.
+- `js/script.js`: Lógica de traducción, inicializaciones y efectos interactivos.
+- `contacto.php`: Procesamiento del formulario de contacto.
 
-## 🎨 Identidad Visual
+## 🎨 Paleta de Colores
 
-- **Fondo Principal:** `#0F172A` (Slate 900) - Transmite profundidad y tecnología.
-- **Acento Primario:** `#10B981` (Emerald 500) - Representa innovación y sistemas inteligentes.
-- **Tipografía:** Inter (Google Fonts) para máxima legibilidad académica.
+- **Fondo:** `#121212` (Negro Carbono)
+- **Tarjetas/Contenedores:** `#1E1E1E` (Gris Oscuro)
+- **Acento:** `#00B4D8` (Azul Eléctrico / Cian)
+- **Texto:** `#F5F5F5` (Blanco Humo)
 
 ## 🛠️ Instalación y Despliegue
 
-1. **Local:** Simplemente abre `index.html` en tu navegador.
-2. **Producción:** Sube los archivos `index.html` y `contacto.php` a tu servidor vía FTP o mediante despliegue de Git. Asegúrate de que el servidor soporte PHP para que el formulario funcione correctamente.
+1. **Local:** Abre `index.html` en cualquier navegador moderno o usa un servidor local (`python -m http.server` o `npx serve`).
+2. **Producción:** Sube la carpeta raíz a tu hosting. Asegúrate de mantener la estructura de carpetas `css/` y `js/`.
 
-## 📬 Contacto
+## 📬 Contacto Profesional
 
-- **LinkedIn:** [Joel Hernández Calero](https://linkedin.com/in/joel-hernandez-calero)
 - **WhatsApp:** [+593 960510934](https://wa.me/593960510934)
-- **Correo:** [contacto@joelhernandez.tech](mailto:contacto@joelhernandez.tech)
+- **Email:** joelhernandez.cv@gmail.com
+- **Ubicación:** Guayaquil, Ecuador (Disponible para trabajo remoto nacional e internacional).
 
 ---
-*Desarrollado con precisión técnica e innovación.*
-=======
-# Joel-Hern-ndez---Portafolio-Web
-Joel Hernández - Portafolio Web
->>>>>>> bcb90b16408df3cee682d6803b91e8e24d0e0c94
+*Innovación y Excelencia Técnica en cada línea de código.*
