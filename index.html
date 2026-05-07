@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joel Hernández | Tech Consultant & Research Engineer</title>
+    <meta name="description" content="Portafolio profesional de Joel Hernández, especialista en IA, Redes, Programación e Investigación Científica.">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS.js for animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Swiper.js for carousel -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            carbon: '#121212',
+                            gray: '#1E1E1E',
+                        },
+                        accent: {
+                            cyan: '#00B4D8',
+                            blue: '#0077B6',
+                        },
+                        smoke: '#F5F5F5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- Header / Nav -->
+    <header class="fixed top-0 w-full z-50 glass">
+        <nav class="container mx-auto px-4 md:px-8 lg:px-12 py-5 flex justify-between items-center transition-all duration-300" id="navbar">
+            <div class="text-2xl font-extrabold tracking-tighter text-smoke">
+                JOEL<span class="text-accent-cyan">HERNÁNDEZ</span>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="flex items-center gap-4 lg:hidden">
+                <button id="lang-toggle-mobile" class="text-sm font-bold px-3 py-1 glass rounded-lg text-accent-cyan">EN</button>
+                <button id="menu-btn" class="text-accent-cyan">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden lg:flex space-x-8 font-medium items-center">
+                <li><a href="#inicio" class="nav-link hover:text-accent-cyan transition text-smoke" data-i18n="nav-start">Inicio</a></li>
+                <li><a href="#trayectoria" class="nav-link hover:text-accent-cyan transition text-smoke" data-i18n="nav-trajectory">Trayectoria</a></li>
+                <li><a href="#servicios" class="nav-link hover:text-accent-cyan transition text-smoke" data-i18n="nav-services">Servicios</a></li>
+                <li><a href="#proyectos" class="nav-link hover:text-accent-cyan transition text-smoke" data-i18n="nav-projects">Proyectos</a></li>
+                <li><a href="#contacto" class="nav-link bg-accent-cyan text-smoke px-6 py-2.5 rounded-full hover:bg-accent-blue transition shadow-lg shadow-accent-cyan/20" data-i18n="nav-contact">Contacto</a></li>
+                <li>
+                    <button id="lang-toggle" class="ml-4 px-3 py-1.5 glass rounded-xl text-accent-cyan hover:bg-accent-cyan/10 transition text-xs font-bold border border-accent-cyan/30">
+                        ENGLISH
+                    </button>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-dark-carbon absolute w-full left-0 py-8 px-10 border-b border-accent-cyan/20 shadow-2xl backdrop-blur-xl">
+            <ul class="flex flex-col space-y-6 text-center text-lg">
+                <li><a href="#inicio" class="block py-2 hover:text-accent-cyan">Inicio</a></li>
+                <li><a href="#trayectoria" class="block py-2 hover:text-accent-cyan">Trayectoria</a></li>
+                <li><a href="#servicios" class="block py-2 hover:text-accent-cyan">Servicios</a></li>
+                <li><a href="#proyectos" class="block py-2 hover:text-accent-cyan">Proyectos</a></li>
+                <li><a href="#contacto" class="block py-3 text-accent-cyan font-bold border-t border-white/5">Contacto</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="inicio" class="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden">
+            <!-- Background Decoration -->
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-[500px] h-[500px] bg-accent-cyan/5 rounded-full blur-[120px]"></div>
+            <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[100px]"></div>
+
+            <div class="container mx-auto px-4 md:px-8 lg:px-12 grid lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-cyan/10 text-accent-cyan text-sm font-semibold mb-8 border border-accent-cyan/20">
+                        <span class="w-2 h-2 rounded-full bg-accent-cyan animate-pulse"></span>
+                        <span data-i18n="hero-tag">Docente Técnico & Research Engineer</span>
+                    </span>
+                    <h1 class="text-5xl lg:text-7xl font-black mb-8 leading-[1.1] tracking-tight text-smoke">
+                        <span data-i18n="hero-title">¿Buscas una <span class="text-gradient">solución digital</span> que funcione?</span>
+                    </h1>
+                    <p class="text-xl text-slate-400 mb-12 max-w-xl leading-relaxed">
+                        <span data-i18n="hero-desc">Convierto tus ideas en plataformas web eficientes, seguras y diseñadas para el éxito. <span class="text-accent-cyan font-medium">Docente Técnico</span> con Máster en Investigación, operando desde Guayaquil para el mundo.</span>
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-5">
+                        <a href="https://wa.me/593960510934" target="_blank" class="px-8 py-4 bg-accent-cyan text-smoke font-bold rounded-2xl hover:bg-accent-blue transition text-center flex items-center justify-center gap-3 shadow-xl shadow-accent-cyan/30">
+                            <i data-lucide="message-circle" class="w-6 h-6"></i> WhatsApp
+                        </a>
+                        <a href="#proyectos" class="px-8 py-4 glass text-smoke font-bold rounded-2xl hover:bg-accent-cyan/10 transition text-center flex items-center justify-center gap-2">
+                            <span data-i18n="hero-btn-projects">Ver Proyectos</span> <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="mt-12 flex items-center gap-8 opacity-60">
+                        <div class="flex flex-col">
+                            <span class="text-2xl font-bold">Guayaquil</span>
+                            <span class="text-xs uppercase tracking-widest">Ubicación</span>
+                        </div>
+                        <div class="w-px h-10 bg-white/20"></div>
+                        <div class="flex flex-col">
+                            <span class="text-2xl font-bold">Remoto</span>
+                            <span class="text-xs uppercase tracking-widest">Cobertura</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative hidden lg:block" data-aos="fade-left">
+                    <div class="relative z-10 rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl aspect-[4/5] max-w-md mx-auto">
+                        <!-- Imagen representativa abstracta/técnica premium -->
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop" alt="Tecnología Avanzada" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                        
+                        <div class="absolute bottom-8 left-8 right-8 p-6 glass rounded-2xl">
+                            <p class="text-sm font-medium italic">"Integrando la creatividad con la tecnología para construir soluciones funcionales e innovadoras."</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Badge -->
+                    <div class="absolute -top-6 -right-6 glass-card p-5 rounded-2xl z-20 animate-bounce-slow">
+                        <div class="flex items-center gap-3">
+                            <div class="p-2 bg-blue-500 rounded-lg"><i data-lucide="graduation-cap" class="text-white w-5 h-5"></i></div>
+                            <span class="font-bold text-sm">MSc. Educación</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trayectoria Académica & Profesional -->
+        <section id="trayectoria" class="section-spacing bg-dark-gray/50">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6" data-aos="fade-up">
+                    <div>
+                        <h2 class="text-4xl lg:text-5xl font-black mb-4 tracking-tight text-smoke"><span data-i18n="traj-title">Excelencia <span class="text-accent-cyan">Académica</span></span></h2>
+                        <p class="text-slate-400 text-lg" data-i18n="traj-subtitle">Formación de cuarto nivel dedicada a la investigación y la tecnología.</p>
+                    </div>
+                    <div class="hidden md:block w-32 h-1 bg-accent-cyan rounded-full mb-4"></div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="glass-card p-10 rounded-[2rem]" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex items-start justify-between mb-8">
+                            <div class="p-4 bg-accent-cyan/10 rounded-2xl text-accent-cyan">
+                                <i data-lucide="graduation-cap" class="w-8 h-8"></i>
+                            </div>
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-widest bg-white/5 px-3 py-1 rounded-full" data-i18n="traj-post">Postgrado</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 leading-tight text-smoke" data-i18n="traj-msc">Master en Educación con mención en Docencia e Investigación en Educación Superior</h3>
+                        <p class="text-slate-400 mb-8 leading-relaxed" data-i18n="traj-msc-desc">
+                            Formación avanzada en pedagogía universitaria, metodologías de investigación científica y gestión académica.
+                        </p>
+                        <div class="flex items-center gap-2 text-accent-cyan text-sm font-bold">
+                            <i data-lucide="award" class="w-4 h-4"></i> <span data-i18n="traj-msc-level">Título de Cuarto Nivel</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-10 rounded-[2rem]" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex items-start justify-between mb-8">
+                            <div class="p-4 bg-accent-cyan/10 rounded-2xl text-accent-cyan">
+                                <i data-lucide="monitor" class="w-8 h-8"></i>
+                            </div>
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-widest bg-white/5 px-3 py-1 rounded-full" data-i18n="traj-degree">Grado</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 leading-tight text-smoke" data-i18n="traj-lic">Licenciado en Ciencias de la Educación mención Sistemas Multimedia</h3>
+                        <p class="text-slate-400 mb-8 leading-relaxed" data-i18n="traj-lic-desc">
+                            Desarrollo de ecosistemas digitales interactivos, diseño multimedia y tecnologías aplicadas a la educación técnica.
+                        </p>
+                        <div class="flex items-center gap-2 text-accent-cyan text-sm font-bold">
+                            <i data-lucide="check-circle" class="w-4 h-4"></i> <span data-i18n="traj-lic-level">Título Profesional (Tercer Nivel)</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-10 rounded-[2rem] md:col-span-2" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flex items-start justify-between mb-8">
+                            <div class="p-4 bg-accent-cyan/10 rounded-2xl text-accent-cyan">
+                                <i data-lucide="book-open" class="w-8 h-8"></i>
+                            </div>
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-widest bg-white/5 px-3 py-1 rounded-full">Secundaria</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 leading-tight text-smoke">Bachiller en Comercio y Administración especialidad Aplicaciones Informáticas</h3>
+                        <p class="text-slate-400 mb-8 leading-relaxed">
+                            Bases sólidas en gestión administrativa, contabilidad y fundamentos de programación y sistemas informáticos.
+                        </p>
+                        <div class="flex items-center gap-2 text-accent-cyan text-sm font-bold">
+                            <i data-lucide="check" class="w-4 h-4"></i> <span>Título de Bachiller</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tecnologías Carousel -->
+        <section class="py-16 bg-dark-carbon">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <div class="swiper techSwiper">
+                    <div class="swiper-wrapper items-center">
+                        <div class="swiper-slide opacity-40 hover:opacity-100 transition-opacity flex justify-center text-accent-cyan"><i data-lucide="code" class="w-12 h-12"></i></div>
+                        <div class="swiper-slide opacity-40 hover:opacity-100 transition-opacity flex justify-center text-accent-cyan"><i data-lucide="terminal" class="w-12 h-12"></i></div>
+                        <div class="swiper-slide opacity-40 hover:opacity-100 transition-opacity flex justify-center text-accent-cyan"><i data-lucide="database" class="w-12 h-12"></i></div>
+                        <div class="swiper-slide opacity-40 hover:opacity-100 transition-opacity flex justify-center text-accent-cyan"><i data-lucide="layout" class="w-12 h-12"></i></div>
+                        <div class="swiper-slide opacity-40 hover:opacity-100 transition-opacity flex justify-center text-accent-cyan"><i data-lucide="cpu" class="w-12 h-12"></i></div>
+                        <div class="swiper-slide opacity-40 hover:opacity-100 transition-opacity flex justify-center text-accent-cyan"><i data-lucide="globe" class="w-12 h-12"></i></div>
+                        <div class="swiper-slide opacity-40 hover:opacity-100 transition-opacity flex justify-center text-accent-cyan"><i data-lucide="shield" class="w-12 h-12"></i></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Servicios Section -->
+        <section id="servicios" class="section-spacing">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <div class="text-center mb-20" data-aos="fade-up">
+                    <h2 class="text-4xl lg:text-5xl font-black mb-6 tracking-tight text-smoke" data-i18n="serv-title">Servicios <span class="text-accent-cyan text-gradient">Especializados</span></h2>
+                    <p class="text-slate-400 text-lg max-w-2xl mx-auto" data-i18n="serv-subtitle">Soluciones digitales integrales diseñadas para potenciar tu presencia y eficiencia operativa.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Servicio 1 -->
+                    <div class="glass-card p-8 rounded-3xl group" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-14 h-14 bg-accent-cyan/10 rounded-2xl flex items-center justify-center text-accent-cyan mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="layout" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-smoke" data-i18n="serv-1-title">Desarrollo Web & Apps</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6" data-i18n="serv-1-desc">Sitios modernos, responsivos y aplicaciones a medida con enfoque en UX/UI y rendimiento SEO.</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-center gap-2 text-xs text-slate-300"><i data-lucide="check" class="w-3 h-3 text-accent-cyan"></i> Landing Pages</li>
+                            <li class="flex items-center gap-2 text-xs text-slate-300"><i data-lucide="check" class="w-3 h-3 text-accent-cyan"></i> E-commerce</li>
+                        </ul>
+                    </div>
+
+                    <!-- Servicio 2 -->
+                    <div class="glass-card p-8 rounded-3xl group" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-14 h-14 bg-accent-cyan/10 rounded-2xl flex items-center justify-center text-accent-cyan mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="shield-check" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-smoke" data-i18n="serv-2-title">Seguridad & Redes</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6" data-i18n="serv-2-desc">Instalación de CCTV avanzado, configuración de redes corporativas y soporte técnico especializado.</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-center gap-2 text-xs text-slate-300"><i data-lucide="check" class="w-3 h-3 text-accent-cyan"></i> Cámaras IP/Analógicas</li>
+                            <li class="flex items-center gap-2 text-xs text-slate-300"><i data-lucide="check" class="w-3 h-3 text-accent-cyan"></i> Soporte Hardware/Software</li>
+                        </ul>
+                    </div>
+
+                    <!-- Servicio 3 -->
+                    <div class="glass-card p-8 rounded-3xl group" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-14 h-14 bg-accent-cyan/10 rounded-2xl flex items-center justify-center text-accent-cyan mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="brain-circuit" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-smoke" data-i18n="serv-3-title">IA & Automatización</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6" data-i18n="serv-3-desc">Implementación de agentes de IA para procesos empresariales y CRM personalizados para gestión de clientes.</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-center gap-2 text-xs text-slate-300"><i data-lucide="check" class="w-3 h-3 text-accent-cyan"></i> Agentes IA Autónomos</li>
+                            <li class="flex items-center gap-2 text-xs text-slate-300"><i data-lucide="check" class="w-3 h-3 text-accent-cyan"></i> Proyectos E-learning</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bento Grid Skills -->
+        <section id="skills" class="section-spacing bg-dark-gray/30">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <div class="text-center mb-20" data-aos="fade-up">
+                    <h2 class="text-4xl lg:text-5xl font-black mb-6 tracking-tight">Arsenal <span class="text-accent-cyan text-gradient">Técnico</span></h2>
+                    <p class="text-slate-400 text-lg max-w-2xl mx-auto">Experiencia especializada en múltiples dimensiones de la ingeniería e informática.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 h-auto md:h-[600px]">
+                    <!-- IA & Automatización -->
+                    <div class="md:col-span-2 md:row-span-1 glass-card p-8 rounded-3xl flex flex-col justify-between border-accent-cyan/20 bg-accent-cyan/5" data-aos="zoom-in">
+                        <div>
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="p-2 bg-accent-cyan rounded-lg text-smoke"><i data-lucide="cpu" class="w-5 h-5"></i></div>
+                                <h3 class="text-xl font-bold">IA & Robótica Educativa</h3>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 glass rounded-full text-xs">Arduino / Raspberry Pi / ESP32</span>
+                                <span class="px-3 py-1 glass rounded-full text-xs">Prompt Engineering</span>
+                                <span class="px-3 py-1 glass rounded-full text-xs">Agentes IA Autónomos</span>
+                                <span class="px-3 py-1 glass rounded-full text-xs">Automatización de Procesos</span>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-sm text-slate-400">Implementación de hardware inteligente y modelos de IA para entornos pedagógicos e industriales.</p>
+                    </div>
+
+                    <!-- Full-Stack -->
+                    <div class="md:col-span-1 md:row-span-2 glass-card p-8 rounded-3xl flex flex-col justify-between" data-aos="zoom-in" data-aos-delay="100">
+                        <div>
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="p-2 bg-blue-500 rounded-lg text-white"><i data-lucide="code" class="w-5 h-5"></i></div>
+                                <h3 class="text-xl font-bold">Web & Modern Stack</h3>
+                            </div>
+                            <ul class="space-y-4">
+                                <li class="text-sm border-l-2 border-blue-500 pl-3">Next.js / React / Node.js</li>
+                                <li class="text-sm border-l-2 border-emerald-500 pl-3">Tailwind / Shadcn UI</li>
+                                <li class="text-sm border-l-2 border-orange-500 pl-3">Supabase / Firebase</li>
+                                <li class="text-sm border-l-2 border-purple-500 pl-3">Android (APK) / Flutter</li>
+                            </ul>
+                        </div>
+                        <div class="mt-8 pt-6 border-t border-white/5">
+                            <p class="text-xs text-slate-500">Cursor AI, VS Code, Git/GitHub</p>
+                        </div>
+                    </div>
+
+                    <!-- Infraestructura -->
+                    <div class="md:col-span-1 md:row-span-1 glass-card p-8 rounded-3xl flex flex-col justify-between" data-aos="zoom-in" data-aos-delay="200">
+                        <div>
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="p-2 bg-indigo-500 rounded-lg text-white"><i data-lucide="server" class="w-5 h-5"></i></div>
+                                <h3 class="text-xl font-bold">Redes</h3>
+                            </div>
+                            <p class="text-sm text-slate-400">Cisco Packet Tracer, VLANs, Servidores & CCTV.</p>
+                        </div>
+                    </div>
+
+                    <!-- Ingeniería & Diseño -->
+                    <div class="md:col-span-2 md:row-span-1 glass-card p-8 rounded-3xl flex flex-col justify-between border-blue-500/20 bg-blue-500/5" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="p-2 bg-slate-500 rounded-lg text-white"><i data-lucide="layers" class="w-5 h-5"></i></div>
+                                    <h3 class="text-xl font-bold">Ingeniería & Diseño</h3>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="text-sm font-medium">AutoCAD 2D/3D</div>
+                                    <div class="text-sm font-medium">Figma UI/UX</div>
+                                    <div class="text-sm font-medium">Visual Studio Code</div>
+                                    <div class="text-sm font-medium">Sistemas Embebidos</div>
+                                </div>
+                            </div>
+                            <div class="hidden sm:block">
+                                <i data-lucide="layout" class="w-16 h-16 opacity-10"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificaciones -->
+        <section id="certificaciones" class="section-spacing bg-dark-gray/50">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-4xl lg:text-5xl font-black mb-4 tracking-tight text-smoke" data-i18n="cert-title">Certificaciones <span class="text-accent-cyan">Premium</span></h2>
+                    <p class="text-slate-400" data-i18n="cert-subtitle">Formación validada por líderes mundiales en tecnología.</p>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-8 items-center">
+                    <!-- CISCO -->
+                    <div class="glass-card px-10 py-6 rounded-2xl flex flex-col items-center gap-4 grayscale hover:grayscale-0 transition" data-aos="flip-left">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Cisco_logo.svg" alt="Cisco" class="h-10">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-widest text-center">Networking Expert</span>
+                    </div>
+                    <!-- Google Cloud -->
+                    <div class="glass-card px-10 py-6 rounded-2xl flex flex-col items-center gap-4 grayscale hover:grayscale-0 transition" data-aos="flip-left" data-aos-delay="100">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" alt="Google Cloud" class="h-10">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-widest text-center">Cloud Architecture</span>
+                    </div>
+                    <!-- IBM Web Dev -->
+                    <div class="glass-card px-10 py-6 rounded-2xl flex flex-col items-center gap-4 grayscale hover:grayscale-0 transition" data-aos="flip-left" data-aos-delay="200">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM" class="h-10">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-widest text-center">Full Stack Dev</span>
+                    </div>
+                    <!-- Web Development -->
+                    <div class="glass-card px-10 py-6 rounded-2xl flex flex-col items-center gap-4 grayscale hover:grayscale-0 transition" data-aos="flip-left" data-aos-delay="300">
+                        <div class="p-2 bg-accent-cyan rounded-lg text-dark-carbon"><i data-lucide="globe" class="w-6 h-6"></i></div>
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-widest text-center">Web Specialist</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proyectos Section -->
+        <section id="proyectos" class="section-spacing">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-4xl lg:text-5xl font-black mb-4 tracking-tight text-smoke"><span data-i18n="proj-title">Proyectos de <span class="text-accent-cyan">Impacto</span></span></h2>
+                    <div class="w-20 h-1 bg-accent-cyan mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Proyecto 1 -->
+                    <div class="glass-card rounded-2xl overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+                        <div class="h-48 bg-emerald-900/20 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2000&auto=format&fit=crop" alt="IA Ecosistema" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <div class="absolute inset-0 bg-emerald-950/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                                <a href="https://github.com/jhernandezec" target="_blank" class="p-3 bg-accent-cyan text-smoke rounded-full"><i data-lucide="github"></i></a>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Ecosistema IA Autónomo</h3>
+                            <p class="text-slate-400 text-sm mb-4">
+                                Gestión de pedidos y atención 24/7 sincronizada con inventario en tiempo real.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="text-[10px] px-2 py-0.5 border border-emerald-500/30 rounded text-accent-cyan">PHP</span>
+                                <span class="text-[10px] px-2 py-0.5 border border-emerald-500/30 rounded text-accent-cyan">Supabase</span>
+                                <span class="text-[10px] px-2 py-0.5 border border-emerald-500/30 rounded text-accent-cyan">OpenAI API</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Proyecto 2 -->
+                    <div class="glass-card rounded-2xl overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
+                        <div class="h-48 bg-blue-900/20 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop" alt="Robótica" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <div class="absolute inset-0 bg-blue-950/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                                <a href="https://github.com/jhernandezec" target="_blank" class="p-3 bg-accent-cyan text-smoke rounded-full"><i data-lucide="github"></i></a>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Brazo Robótico e IoT</h3>
+                            <p class="text-slate-400 text-sm mb-4">
+                                Prototipo industrial con monitoreo remoto y alertas mediante sensores inteligentes.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="text-[10px] px-2 py-0.5 border border-blue-500/30 rounded text-blue-500">Arduino</span>
+                                <span class="text-[10px] px-2 py-0.5 border border-blue-500/30 rounded text-blue-500">LabVIEW</span>
+                                <span class="text-[10px] px-2 py-0.5 border border-blue-500/30 rounded text-blue-500">ESP32</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Proyecto 3 -->
+                    <div class="glass-card rounded-2xl overflow-hidden group" data-aos="fade-up" data-aos-delay="300">
+                        <div class="h-48 bg-indigo-900/20 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc51?q=80&w=2000&auto=format&fit=crop" alt="Infraestructura" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <div class="absolute inset-0 bg-indigo-950/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                                <a href="https://github.com/jhernandezec" target="_blank" class="p-3 bg-accent-cyan text-smoke rounded-full"><i data-lucide="github"></i></a>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Red Corporativa Cloud</h3>
+                            <p class="text-slate-400 text-sm mb-4">
+                                Infraestructura multisitio con seguridad perimetral y backup automático en la nube.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="text-[10px] px-2 py-0.5 border border-indigo-500/30 rounded text-indigo-500">Cisco</span>
+                                <span class="text-[10px] px-2 py-0.5 border border-indigo-500/30 rounded text-indigo-500">AWS S3</span>
+                                <span class="text-[10px] px-2 py-0.5 border border-indigo-500/30 rounded text-indigo-500">OSPF</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-16 text-center">
+                    <a href="https://github.com/jhernandezec" target="_blank" class="inline-flex items-center gap-2 text-accent-cyan font-bold hover:underline">
+                        Ver más en GitHub <i data-lucide="external-link" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacto Section -->
+        <section id="contacto" class="section-spacing bg-dark-gray/50">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <div class="grid lg:grid-cols-2 gap-20">
+                    <div data-aos="fade-right">
+                        <h2 class="text-4xl lg:text-5xl font-black mb-8 leading-tight">¿Tienes un <span class="text-accent-cyan">Desafío Técnico?</span></h2>
+                        <p class="text-slate-400 text-lg mb-12 leading-relaxed">
+                            Estoy listo para transformar tus ideas en soluciones de alto impacto mediante IA y tecnología avanzada. Hablemos sobre tu próximo proyecto desde Guayaquil para cualquier parte del mundo.
+                        </p>
+                        
+                        <div class="space-y-8">
+                            <div class="flex items-center gap-6">
+                                <div class="w-14 h-14 glass rounded-2xl flex items-center justify-center text-accent-cyan shadow-lg">
+                                    <i data-lucide="mail"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-500 uppercase tracking-widest font-bold">Email Directo</p>
+                                    <p class="text-xl font-bold">joelhernandez.cv@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-6">
+                                <div class="w-14 h-14 glass rounded-2xl flex items-center justify-center text-accent-cyan shadow-lg">
+                                    <i data-lucide="phone"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-500 uppercase tracking-widest font-bold">WhatsApp Business</p>
+                                    <p class="text-xl font-bold">+593 960510934</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-8 rounded-3xl" data-aos="fade-left">
+                        <form action="contacto.php" method="POST" class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2 text-slate-400">Nombre</label>
+                                    <input type="text" name="nombre" required class="w-full bg-dark-carbon border border-white/10 rounded-xl px-4 py-3 focus:border-emerald-500 focus:outline-none transition">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2 text-slate-400">Email</label>
+                                    <input type="email" name="email" required class="w-full bg-dark-carbon border border-white/10 rounded-xl px-4 py-3 focus:border-emerald-500 focus:outline-none transition">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2 text-slate-400">Asunto</label>
+                                <input type="text" name="asunto" required class="w-full bg-dark-carbon border border-white/10 rounded-xl px-4 py-3 focus:border-emerald-500 focus:outline-none transition">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2 text-slate-400">Mensaje</label>
+                                <textarea name="mensaje" rows="4" required class="w-full bg-dark-carbon border border-white/10 rounded-xl px-4 py-3 focus:border-emerald-500 focus:outline-none transition"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-accent-cyan text-smoke font-bold py-4 rounded-xl hover:bg-accent-blue transition flex items-center justify-center gap-2">
+                                Enviar Mensaje <i data-lucide="send" class="w-5 h-5"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-20 border-t border-white/5 bg-dark-carbon">
+        <div class="container mx-auto px-4 md:px-8 lg:px-12 text-center">
+            <div class="text-2xl font-extrabold tracking-tighter mb-8 text-smoke">
+                JOEL<span class="text-accent-cyan">HERNÁNDEZ</span>
+            </div>
+            <p class="text-slate-500 text-sm mb-12 italic max-w-xl mx-auto leading-relaxed">
+                "Transformando la educación y la industria mediante la convergencia de la investigación científica y la innovación digital."
+            </p>
+            
+            <div class="flex justify-center gap-8 mb-12">
+                <a href="https://linkedin.com/in/joelhernandezc/" target="_blank" class="w-12 h-12 glass rounded-2xl flex items-center justify-center text-smoke hover:text-accent-cyan hover:scale-110 transition-all duration-300 shadow-lg shadow-accent-cyan/5">
+                    <i data-lucide="linkedin" class="w-6 h-6"></i>
+                </a>
+                <a href="https://github.com/jhernandezec" target="_blank" class="w-12 h-12 glass rounded-2xl flex items-center justify-center text-smoke hover:text-accent-cyan hover:scale-110 transition-all duration-300 shadow-lg shadow-accent-cyan/5">
+                    <i data-lucide="github" class="w-6 h-6"></i>
+                </a>
+                <a href="https://wa.me/593960510934" target="_blank" class="w-12 h-12 glass rounded-2xl flex items-center justify-center text-smoke hover:text-accent-cyan hover:scale-110 transition-all duration-300 shadow-lg shadow-accent-cyan/5">
+                    <i data-lucide="message-circle" class="w-6 h-6"></i>
+                </a>
+                <a href="mailto:joelhernandez.cv@gmail.com" class="w-12 h-12 glass rounded-2xl flex items-center justify-center text-smoke hover:text-accent-cyan hover:scale-110 transition-all duration-300 shadow-lg shadow-accent-cyan/5">
+                    <i data-lucide="mail" class="w-6 h-6"></i>
+                </a>
+            </div>
+
+            <p class="text-slate-600 text-xs">
+                &copy; 2026 Joel Hernández - Consultoría e Innovación Tecnológica. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Sticky Buttons -->
+    <div class="fixed bottom-8 right-8 z-[100] flex flex-col gap-4">
+        <a href="https://wa.me/593960510934" target="_blank" class="w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300">
+            <i data-lucide="message-circle" class="w-8 h-8"></i>
+        </a>
+        <button id="scroll-top" class="w-14 h-14 glass text-accent-cyan rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-all duration-300 opacity-0 invisible">
+            <i data-lucide="arrow-up" class="w-8 h-8"></i>
+        </button>
+    </div>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>
